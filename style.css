@@ -1,0 +1,125 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f9f9f9; /* Off-white for a premium feel */
+    color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+h1, .logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    letter-spacing: -1px;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 60px;
+    z-index: 1000;
+    mix-blend-mode: difference; /* This makes text white on dark images automatically */
+    color: white;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar ul li {
+    margin-left: 40px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('https://images.unsplash.com/photo-1471870831470-a1df9ee2b28c?auto=format&fit=crop&w=2000') no-repeat center center/cover;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: white;
+    line-height: 1.1;
+}
+
+/* Gallery Grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: 400px;
+    gap: 20px;
+    padding: 80px 40px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    position: relative;
+    background: #eee;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Asymmetrical layout touches */
+.gallery-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.gallery-item.tall {
+    grid-row: span 2;
+}
+
+/* Footer */
+footer {
+    padding: 100px 40px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px;
+    }
+    .gallery {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 300px;
+        padding: 20px;
+    }
+    .gallery-item.large {
+        grid-column: span 1;
+    }
+}
